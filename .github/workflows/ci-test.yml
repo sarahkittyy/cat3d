@@ -16,7 +16,7 @@ jobs:
       - name: deps
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y libglfw3-dev libglew-dev libglm-dev
+          sudo apt-get install -y libglfw3-dev libglew-dev
       - uses: actions/checkout@v2
       - name: generate
         run: cmake -DBUILD_TESTS=ON -DBUILD_EXAMPLES=ON ..
