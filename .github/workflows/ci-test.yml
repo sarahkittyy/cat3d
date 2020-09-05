@@ -1,0 +1,28 @@
+name: build
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    name: Run the tests <3
+    runs-on: ubuntu-latest
+    env:
+      CC: gcc-9
+      CXX: g++-9
+    steps:
+      - name: deps
+        run: |
+          echo nya
+      - uses: actions/checkout@v2
+      - name: generate
+        run: cmake -DBUILD_TESTS=ON -DBUILD_EXAMPLES=ON ..
+        working-directory: ./build
+      - name: build
+        run: make
+        working-directory: ./build
+      - name: test
+        run: make test
+        working-directory: ./build
