@@ -66,4 +66,4 @@ int main() {
 }
 ```
 
-![Gif of above example](examples/spinning-cube.gif)
+![Gif of above example](https://raw.githubusercontent.com/sarahkittyy/cat3d/master/examples/spinning-cube.gif)
