@@ -7,7 +7,9 @@
 			"command": "cmake",
 			"args": [
 				"-DCMAKE_BUILD_TYPE=Debug",
-				"-DBUILD_SANDBOX=true",
+				"-DBUILD_SANDBOX=ON",
+				"-DBUILD_EXAMPLES=ON",
+				"-DBUILD_TESTS=ON",
 				"-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
 				".."
 			],
@@ -22,13 +24,9 @@
 			"args": [
 				
 			],
-			"group": {
-				"kind": "test",
-				"isDefault": true
-			},
 			"dependsOn": "gen",
 			"options": {
-				"cwd": "build"
+				"cwd": "build",
 			}
 		},
 		{
@@ -43,6 +41,22 @@
 				"isDefault": true
 			},
 			"dependsOn": "make"
+		},
+		{
+			"label": "test",
+			"type": "shell",
+			"command": "make test",
+			"args": [
+				
+			],
+			"dependsOn": "make",
+			"options": {
+				"cwd": "build",
+			},
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			}
 		}
 	]
 }
