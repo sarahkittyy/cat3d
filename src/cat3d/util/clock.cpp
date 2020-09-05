@@ -4,7 +4,8 @@
 
 namespace cat3d::util {
 
-time::time() {
+time::time()
+	: m_ms(0) {
 }
 
 time::time(unsigned long ms)
