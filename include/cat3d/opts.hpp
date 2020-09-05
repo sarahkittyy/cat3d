@@ -44,7 +44,7 @@ public:
 	T get(opt key, T fallback) const {
 		try {
 			return std::any_cast<T>(m_config.at(key));
-		} catch (std::out_of_range e) {
+		} catch (const std::out_of_range& e) {
 			return fallback;
 		}
 	}
