@@ -3,7 +3,6 @@ project(cat3d)
 
 find_package(glfw3 REQUIRED)
 find_package(GLEW REQUIRED)
-find_package(glm REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
 

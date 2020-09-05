@@ -1,7 +1,5 @@
 #pragma once
 
-#define GLM_ENABLE_EXPERIMENTAL
-
 #include "cat3d/color.hpp"
 #include "cat3d/obj.hpp"
 #include "cat3d/opts.hpp"
