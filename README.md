@@ -1,5 +1,7 @@
 # cat3d
 
+![badge](https://github.com/sarahkittyy/cat3d/workflows/build/badge.svg)
+
 A tiny OpenGL 3D engine library written in and for C++.
 
 ## Dependencies
