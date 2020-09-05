@@ -4,7 +4,6 @@
 #include <glm/glm.hpp>
 #include <vector>
 
-#include "cat3d/scene/generators.inl"
 #include "cat3d/util/clock.hpp"
 #include "cat3d/util/transform.hpp"
 #include "cat3d/window.hpp"
@@ -71,11 +70,16 @@ public:
 	 */
 	node* parent() const;
 
-	/// SCENE OBJECTS ///
 	node* create_node();
-	GEN_CREATOR(camera, glm::vec3 pos, glm::vec3 aim, float fov);
-	GEN_CREATOR(model, const std::string& file);
-	GEN_CREATOR(timer, std::function<void(util::time)> fn, util::time interval, int ct = -1);
+
+	template <typename Obj, typename... Args>
+	Obj* create(Args... args) {
+		Obj* o		= new Obj(args...);
+		o->m_root	= false;
+		o->m_parent = this;
+		m_children.push_back((node*)o);
+		return o;
+	}
 
 protected:
 	/// update this node.

@@ -71,24 +71,12 @@ void node::push_transform(window& win) {
 	win.set_transform(global_transform().to_mat4());
 }
 
-CREATOR_IMPL_DEF(node) {
+node* node::create_node() {
 	node* n		= new node();
 	n->m_root	= false;
 	n->m_parent = this;
 	m_children.push_back(n);
 	return n;
-}
-
-CREATOR_IMPL_DEF(camera, glm::vec3 pos, glm::vec3 aim, float fov) {
-	CREATOR_IMPL(camera, pos, aim, fov);
-}
-
-CREATOR_IMPL_DEF(model, const std::string& file) {
-	CREATOR_IMPL(model, file);
-}
-
-CREATOR_IMPL_DEF(timer, std::function<void(util::time)> fn, util::time interval, int ct) {
-	CREATOR_IMPL(timer, fn, interval, ct);
 }
 
 }
