@@ -1,0 +1,4 @@
+*.code-workspace
+.vscode/ipch
+sandbox/
+Session.vim

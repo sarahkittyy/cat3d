@@ -1,0 +1,48 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "gen",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"-DCMAKE_BUILD_TYPE=Debug",
+				"-DBUILD_SANDBOX=true",
+				"-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+				".."
+			],
+			"options": {
+				"cwd": "build"
+			}
+		},
+		{
+			"label": "make",
+			"type": "shell",
+			"command": "make",
+			"args": [
+				
+			],
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"dependsOn": "gen",
+			"options": {
+				"cwd": "build"
+			}
+		},
+		{
+			"label": "run",
+			"type": "shell",
+			"command": "./build/sandbox/sandbox",
+			"args": [
+				
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"dependsOn": "make"
+		}
+	]
+}
