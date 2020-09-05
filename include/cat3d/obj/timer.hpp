@@ -20,7 +20,7 @@ public:
 	 * @param interval The time between each call
 	 * @param ct How many times to run the function before terminating, -1 = infinite.
 	 */
-	timer(std::function<void(util::time dt)> fn, util::time interval, int ct = -1);
+	timer(std::function<void(util::time dt)> fn, util::time interval = util::time(), int ct = -1);
 
 protected:
 	void update_self(window& win);
