@@ -15,6 +15,7 @@ jobs:
     steps:
       - name: deps
         run: |
+          sudo apt-get update -y
           sudo apt-get install -y libglfw3-dev libglew-dev libglm-dev
       - uses: actions/checkout@v2
       - name: generate
