@@ -11,12 +11,11 @@
 namespace cat3d::scene {
 
 /**
- * @brief A scene node
+ * @brief Basic, semi-abstract scene node class. Can have children which are other scene nodes, or derived types.
  * 
  */
 class node {
 public:
-	/// default constructor
 	node();
 
 	/**
@@ -26,39 +25,45 @@ public:
 	 */
 	static node* new_root();
 
-	/// virtual destructor for the node
+	/// virtual destructor for polymorphism
 	virtual ~node();
 
 	/**
-	 * @brief detach & deallocate the given child node
+	 * @brief Remove the given child node.
 	 * 
-	 * @param child 
+	 * @param child A child of this node
 	 */
 	void delete_child(node* child);
 
 	/**
-	 * @brief get the node's model matrix relative to the world
+	 * @brief Get this node's transform relative to the world.
 	 * 
 	 */
 	util::transform global_transform() const;
 
 	/**
-	 * @brief get the node's model matrix relative to itself
+	 * @brief Get the node's transform relative to itself.
 	 * 
 	 */
 	util::transform local_transform() const;
 
-	/// a modifiable, non-const version of local_transform
+	/**
+	 * @brief Access to the underlying transform.
+	 * 
+	 * @remarks Safe to modify
+	 * 
+	 * @return util::transform& Reference to this node's transform.
+	 */
 	util::transform& transform();
 
 	/**
-	 * @brief update this node and all children.
+	 * @brief Called once per frame. Updates this node.
 	 * 
 	 */
 	void update(window& win);
 
 	/**
-	 * @brief render this node and all children
+	 * @brief Called once per render. Renders this node and all children.
 	 * 
 	 */
 	void render(window& win);
@@ -70,8 +75,22 @@ public:
 	 */
 	node* parent() const;
 
+	/**
+	 * @brief Create a child node
+	 * 
+	 * @return node* The created node
+	 */
 	node* create_node();
 
+	/**
+	 * @brief Add a derived node class as a child
+	 * 
+	 * @remarks These are typically found in cat3d/obj
+	 * 
+	 * @tparam Obj The type of object to add
+	 * @tparam Args The arguemnts passed to the constructor
+	 * @return Obj* Pointer to the newly created node instance
+	 */
 	template <typename Obj, typename... Args>
 	Obj* create(Args... args) {
 		Obj* o		= new Obj(args...);
@@ -82,10 +101,18 @@ public:
 	}
 
 protected:
-	/// update this node.
+	/**
+	 * @brief Overridden by child classes to implement custom behavior
+	 * 
+	 * @param win The main cat3d window.
+	 */
 	virtual void update_self(window& win);
 
-	/// render this node.
+	/**
+	 * @brief Overridden by child classes to implement custom rendering
+	 * 
+	 * @param win The main cat3d window.
+	 */
 	virtual void render_self(window& win);
 
 private:

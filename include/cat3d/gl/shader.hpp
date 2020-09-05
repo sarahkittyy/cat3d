@@ -7,7 +7,7 @@
 namespace cat3d::gl {
 
 /**
- * @brief opengl shader class
+ * @brief OpenGL abstraction to handle shader setup & binding.
  * 
  */
 class shader {
@@ -19,6 +19,7 @@ public:
 	 * @param fs The fragment shader source
 	 */
 	shader(const char* vs, const char* fs);
+
 	/**
 	 * @brief Load the default shader
 	 * 

@@ -57,7 +57,7 @@ int main() {
 
     /// attach a timer onto the cube to rotate it each frame
 	cube->create<obj::timer>([cube](cat3d::util::time dt) {
-		float dts = dt.to_seconds();
+		float dts = dt.as_seconds();
 		cube->transform().rotate(glm::vec3(1.f * dts, 0.2f * dts, 0));
 	});
 

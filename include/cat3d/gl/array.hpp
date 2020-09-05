@@ -9,7 +9,7 @@
 namespace cat3d::gl {
 
 /**
- * @brief vertex array abstraction
+ * @brief Abstraction of an OpenGL Vertex Array Object
  * 
  */
 class array {
@@ -18,36 +18,58 @@ public:
 	~array();
 
 	/**
-	 * @brief attach a new buffer to the vertex array
+	 * @brief Attach a new buffer to the vertex array
 	 * 
 	 * @param index The index of the buffer in the shader's layout
 	 * @param size 1,2,3, or 4
-	 * @return buffer* the generated buffer.
+	 * @return buffer* The generated buffer.
 	 */
 	buffer* gen_buffer(GLuint index, GLuint size);
 
 	/**
-	 * @brief bind a new element buffer to the vertex array 
+	 * @brief Bind a new element buffer to the vertex array 
 	 * 
-	 * @return buffer* a pointer to the element buffer
+	 * @return buffer* A pointer to the element buffer
 	 */
 	buffer* gen_element_buffer();
 
 	/**
-	 * @brief disable an attribute in this array
+	 * @brief Disable an attribute in this array
 	 * 
 	 * @param index The attribute index
 	 */
 	void disable_attrib(GLuint index);
 
+	/**
+	 * @brief Enable an attribute in this array
+	 * 
+	 * @param index The attribute index
+	 */
+	void enable_attrib(GLuint index);
+
+	/**
+	 * @brief Set this array's primitive type
+	 * 
+	 * @param p 
+	 */
 	void set_primitive(primitive p);
+
+	/**
+	 * @brief Retrieve this array's primitive type.
+	 * 
+	 * @return primitive 
+	 */
 	primitive get_primitive() const;
 
-	/// sets the internal vertex count of the vao
+	/**
+	 * @brief Internally sets the amount of vertices to render.
+	 * 
+	 * @param ct 
+	 */
 	void set_vertex_ct(GLuint ct);
 
 	/**
-	 * @brief draw the vertex array
+	 * @brief Render the vertex array
 	 * 
 	 */
 	void render();

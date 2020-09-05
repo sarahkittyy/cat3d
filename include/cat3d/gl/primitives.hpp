@@ -4,6 +4,10 @@
 
 namespace cat3d::gl {
 
+/**
+ * @brief All OpenGL primitive drawable types.
+ * 
+ */
 enum primitive {
 	Points		  = GL_POINTS,
 	Lines		  = GL_LINES,

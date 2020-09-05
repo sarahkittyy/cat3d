@@ -24,15 +24,15 @@ time time::minutes(float m) {
 	return time(m * 60 * 1000);
 }
 
-float time::to_seconds() const {
+float time::as_seconds() const {
 	return m_ms / 1000.f;
 }
 
-unsigned long time::to_milliseconds() const {
+unsigned long time::as_milliseconds() const {
 	return m_ms;
 }
 
-float time::to_minutes() const {
+float time::as_minutes() const {
 	return m_ms / (1000.f * 60.f);
 }
 

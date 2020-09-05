@@ -9,13 +9,17 @@ namespace cat3d::gl {
 
 class array;
 
+/**
+ * @brief Types of Vertex Buffer Objects
+ * 
+ */
 enum buffer_type {
 	Vertex	= GL_ARRAY_BUFFER,
 	Element = GL_ELEMENT_ARRAY_BUFFER,
 };
 
 /**
- * @brief abstraction of a vertex buffer
+ * @brief OpenGL Vertex Buffer abstraction for rendering 3D objects onto the screen.
  * 
  */
 class buffer {
@@ -25,7 +29,7 @@ public:
 	buffer_type get_type() const;
 
 	/**
-	 * @brief set the internal buffer data & properties
+	 * @brief Set the internal buffer data
 	 * 
 	 * @tparam T 
 	 * @param data 
@@ -39,6 +43,10 @@ public:
 	}
 
 private:
+	/**
+	 * @brief Constructor is private as to only allow buffers to be generated through cat3d/gl/array.hpp
+	 * 
+	 */
 	buffer();
 
 	/// so array can manipulate the buffer as needed

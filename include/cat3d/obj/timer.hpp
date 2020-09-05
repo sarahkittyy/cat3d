@@ -8,7 +8,7 @@
 namespace cat3d::obj {
 
 /**
- * @brief for running events on an interval / timer
+ * @brief cat3d node for timing the call of a function.
  * 
  */
 class timer : public scene::node {

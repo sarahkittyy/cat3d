@@ -6,54 +6,105 @@
 namespace cat3d::util {
 
 /**
- * @brief for abstracting away matrix transformation logic
+ * @brief Transformation class to manage 3D space transforms.
  * 
  */
 class transform {
 public:
-	/// init to the identity matrix
 	transform();
 
 	/**
-	 * @brief resets the transform to the identity matrix
+	 * @brief Resets the transform back to the identity matrix.
 	 * 
 	 */
 	void reset();
 
-	/// the default identity matrix
-	static transform identity;
+	/**
+	 * @brief A copy of the identity matrix.
+	 * 
+	 */
+	static const transform identity;
 
 	/**
-	 * @brief convert the transform to a matrix
+	 * @brief Convert the transform to a GLM matrix.
 	 * 
-	 * @return glm::mat4 
+	 * @return glm::mat4
 	 */
 	glm::mat4 to_mat4() const;
 
-	/// set the matrix translation
+	/**
+	 * @brief Set the transform's position
+	 * 
+	 * @param p 
+	 */
 	void set_pos(glm::vec3 p);
-	/// get the matrix translation
+	/**
+	 * @brief Get the transform's position
+	 * 
+	 * @return glm::vec3 
+	 */
 	glm::vec3 get_pos() const;
-	/// update the matrix translation
+	/**
+	 * @brief Translate the transform through space
+	 * 
+	 * @param p The displacement to move 
+	 * @return transform& *this
+	 */
 	transform& move(glm::vec3 p);
 
-	/// set the rotation in euler angles
+	/**
+	 * @brief Set the transform's rotation
+	 * 
+	 * @param angles Euler angles to rotate
+	 */
 	void set_rotation(glm::vec3 angles);
-	/// get the rotation, in euler angles
+	/**
+	 * @brief Get the transform's rotation
+	 * 
+	 * @return glm::vec3 Euler angles representing the current rotation
+	 */
 	glm::vec3 get_rotation() const;
-	/// rotate by the given euler angles
+	/**
+	 * @brief Rotate by the given euler angle displacement.
+	 * 
+	 * @param angles Euler angles to rotate by
+	 * @return transform& *this
+	 */
 	transform& rotate(glm::vec3 angles);
 
-	/// set the scale
+	/**
+	 * @brief Set the transform's scale
+	 * 
+	 * @param s 
+	 */
 	void set_scale(glm::vec3 s);
-	/// get the scale
+	/**
+	 * @brief Get the transform's scale
+	 * 
+	 * @return glm::vec3 
+	 */
 	glm::vec3 get_scale() const;
-	/// scale the transform
+	/**
+	 * @brief Scale the transform
+	 * 
+	 * @param s 
+	 * @return transform& *this
+	 */
 	transform& scale(glm::vec3 s);
 
-	/// combine another transform with this one and return the new transform
+	/**
+	 * @brief Combine two transforms.
+	 * 
+	 * @param other 
+	 * @return transform The new transform
+	 */
 	transform operator*(const transform& other) const;
-	/// combine another transform with this one
+	/**
+	 * @brief Combine another transform with this one
+	 * 
+	 * @param other 
+	 * @return transform& *this
+	 */
 	transform& operator*=(const transform& other);
 
 private:

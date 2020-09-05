@@ -5,7 +5,7 @@
 
 namespace cat3d::util {
 
-transform transform::identity = transform();
+transform const transform::identity = transform();
 
 transform::transform() {
 	reset();

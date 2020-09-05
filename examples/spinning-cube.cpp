@@ -15,7 +15,7 @@ int main() {
 	obj::model* cube = root->create<obj::model>("examples/cube.obj");
 
 	cube->create<obj::timer>([cube](cat3d::util::time dt) {
-		float dts = dt.to_seconds();
+		float dts = dt.as_seconds();
 		cube->transform().rotate(glm::vec3(1.f * dts, 0.2f * dts, 0));
 	});
 

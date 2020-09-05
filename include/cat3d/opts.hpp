@@ -14,7 +14,7 @@ enum opt {
 };
 
 /**
- * @brief cat3d main configuration options
+ * @brief cat3d main configuration options class
  * 
  */
 class opts {
@@ -40,6 +40,14 @@ public:
 		return std::any_cast<T>(m_config.at(key));
 	}
 
+	/**
+	 * @brief Retrieve the value at the given key
+	 * 
+	 * @tparam T The type of value expected at this key
+	 * @param key The key
+	 * @param fallback Fallback option if the key does not exist.
+	 * @return const T& A const reference to that value
+	 */
 	template <typename T>
 	T get(opt key, T fallback) const {
 		try {

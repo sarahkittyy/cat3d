@@ -86,4 +86,9 @@ void array::disable_attrib(GLuint index) {
 	glDisableVertexAttribArray(index);
 }
 
+void array::enable_attrib(GLuint index) {
+	bind();
+	glEnableVertexAttribArray(index);
+}
+
 }
