@@ -12,6 +12,18 @@ if(BUILD_SANDBOX)
 	add_subdirectory(sandbox/)
 endif()
 
+# build the examples
+option(BUILD_EXAMPLES "Build the example programs" OFF)
+if(BUILD_EXAMPLES)
+	add_subdirectory(examples/)
+endif()
+
+option(BUILD_TESTS "Build the unit tests" OFF)
+if(BUILD_TESTS)
+	add_subdirectory(tests/)
+	enable_testing()
+endif()
+
 file(GLOB_RECURSE sources "src/*.cpp")
 
 add_library(cat3d ${sources})
@@ -25,3 +37,5 @@ target_link_libraries(cat3d
 	GLEW
 	GL
 )
+
+add_test(NAME UnitTests COMMAND cat3d_test)
