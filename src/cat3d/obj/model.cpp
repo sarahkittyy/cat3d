@@ -1,4 +1,4 @@
-#include "OBJ_Loader.h"
+#include "OBJ_Loader/OBJ_Loader.h"
 #include "cat3d/obj/model.hpp"
 
 namespace cat3d::obj {
