@@ -64,23 +64,21 @@ const char* shader::m_default_vs = R"/shader(
 #version 330 core
 
 layout(location = 0) in vec3 pos;
-layout(location = 1) in vec4 color;
-layout(location = 2) in vec2 uv;
-layout(location = 3) in vec3 normal;
+layout(location = 1) in vec2 uv;
+layout(location = 2) in vec3 normal;
 
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 proj;
 
-out vec4 colorV;
 out vec2 UV;
 out vec3 normV;
 
 void main() {
 	gl_Position = proj * view * model * vec4(pos, 1.0);
-	
-	colorV = color;
+
 	UV = uv;
+	normV = normal;
 }
 
 )/shader";
@@ -88,7 +86,6 @@ void main() {
 const char* shader::m_default_fs = R"/shader(
 #version 330 core
 
-in vec4 colorV;
 in vec2 UV;
 in vec3 normV;
 

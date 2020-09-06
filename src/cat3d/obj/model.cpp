@@ -12,10 +12,9 @@ model::model(const std::string& path) {
 
 		arr.set_primitive(gl::Triangles);
 
-		size_t pos_b = arr.gen_buffer(0, 3);
-		arr.disable_attrib(1);
-		size_t uv_b		 = arr.gen_buffer(2, 2);
-		size_t normal_b	 = arr.gen_buffer(3, 3);
+		size_t pos_b	 = arr.gen_buffer(0, 3);
+		size_t uv_b		 = arr.gen_buffer(1, 2);
+		size_t normal_b	 = arr.gen_buffer(2, 3);
 		size_t element_b = arr.gen_element_buffer();
 
 		arr.get_buffer(pos_b).set_data(mesh.positions());
