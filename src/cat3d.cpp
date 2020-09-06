@@ -51,12 +51,6 @@ void init(opts opt) {
 		throw std::runtime_error("Could not initialize glfw.");
 	}
 
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LESS);
-	glEnable(GL_CULL_FACE);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
 	int width		  = m_opt->get<int>(cat3d::WIDTH, 800);
 	int height		  = m_opt->get<int>(cat3d::HEIGHT, 600);
 	const char* title = m_opt->get<const char*>(cat3d::TITLE, "untitled");
@@ -67,6 +61,12 @@ void init(opts opt) {
 		glfwTerminate();
 		throw std::runtime_error("Could not initialize glew.");
 	}
+
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	m_shader = new gl::shader();
 	m_shader->bind();
