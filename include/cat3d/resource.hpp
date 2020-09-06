@@ -1,6 +1,9 @@
 #pragma once
 
-#include "cat3d/gl/texture.hpp"
+#include <unordered_map>
+#include <string>
+
+#include "cat3d/gl.hpp"
 
 namespace cat3d {
 
@@ -11,6 +14,15 @@ class resource {
 public:
 	resource();
 	~resource();
+	
+	/**
+	 * @brief Get the texture at the given path
+	 *
+	 * @param path The path to the texture file
+	 *
+	 * @returns gl::texture& A reference to the loaded texture
+	 */
+	gl::texture& texture(const std::string& path);
 
 	/**
 	 * @brief Get the default app resource manager
@@ -22,6 +34,9 @@ public:
 private:
 	/// the primary app manager
 	static resource m_primary;
+
+	/// all loaded textures
+	std::unordered_map<std::string, gl::texture> m_textures;
 };
 
 }

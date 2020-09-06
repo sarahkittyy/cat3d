@@ -1,6 +1,7 @@
 #pragma once
 
 #include "cat3d/gl/texture.hpp"
+#include "cat3d/resource.hpp"
 #include "cat3d/scene.hpp"
 
 namespace cat3d::obj {
@@ -16,7 +17,7 @@ public:
 	 * @param path The path to the texture.
 	 */
 	texture(const std::string& path);
-	
+
 	/// disconnects from the bind hook
 	~texture();
 
