@@ -25,7 +25,11 @@ public:
 	 * 
 	 */
 	shader();
-	~shader();
+
+	/**
+	 * @brief Delete the internal shader program 
+	 */
+	void del();
 
 	/// bind the shader
 	void bind();

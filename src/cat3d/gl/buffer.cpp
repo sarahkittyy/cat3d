@@ -1,5 +1,5 @@
-#include "cat3d/gl/array.hpp"
 #include "cat3d/gl/buffer.hpp"
+#include "cat3d/gl/array.hpp"
 
 namespace cat3d::gl {
 
@@ -7,8 +7,12 @@ buffer::buffer() {
 	glGenBuffers(1, &m_vbo);
 }
 
-buffer::~buffer() {
+void buffer::del() {
 	glDeleteBuffers(1, &m_vbo);
+}
+
+GLuint buffer::index() const {
+	return m_vao_i;
 }
 
 void buffer::set_type(buffer_type t) {

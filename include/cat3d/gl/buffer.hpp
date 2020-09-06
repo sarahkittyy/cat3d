@@ -24,8 +24,19 @@ enum buffer_type {
  */
 class buffer {
 public:
-	~buffer();
+	/**
+	 * @brief Delete the internal OpenGL buffer object.
+	 */
+	void del();
 
+	/**
+	 * @brief Get the index of this buffer in the parent VAO 
+	 */
+	GLuint index() const;
+
+	/**
+	 * @brief Get the internal type of this buffer
+	 */
 	buffer_type get_type() const;
 
 	/**

@@ -43,7 +43,7 @@ shader::shader(const char* vs_source, const char* fs_source) {
 	}
 }
 
-shader::~shader() {
+void shader::del() {
 	if (loaded()) {
 		glDeleteProgram(m_prog);
 	}

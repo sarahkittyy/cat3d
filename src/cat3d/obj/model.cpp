@@ -1,5 +1,5 @@
-#include "OBJ_Loader/OBJ_Loader.h"
 #include "cat3d/obj/model.hpp"
+#include "OBJ_Loader/OBJ_Loader.h"
 
 namespace cat3d::obj {
 
@@ -9,11 +9,11 @@ model::model(const std::string& path) {
 	objl::Loader l;
 	l.LoadFile(path);
 
-	gl::buffer* pos_b = m_arr.gen_buffer(0, 3);
+	size_t pos_b = m_arr.gen_buffer(0, 3);
 	m_arr.disable_attrib(1);
-	gl::buffer* uv_b	  = m_arr.gen_buffer(2, 2);
-	gl::buffer* normal_b  = m_arr.gen_buffer(3, 3);
-	gl::buffer* element_b = m_arr.gen_element_buffer();
+	size_t uv_b		 = m_arr.gen_buffer(2, 2);
+	size_t normal_b	 = m_arr.gen_buffer(3, 3);
+	size_t element_b = m_arr.gen_element_buffer();
 
 	std::vector<GLfloat> positions;
 	std::vector<GLfloat> uvs;
@@ -35,10 +35,10 @@ model::model(const std::string& path) {
 
 	elements = l.LoadedIndices;
 
-	pos_b->set_data(positions);
-	uv_b->set_data(uvs);
-	normal_b->set_data(norms);
-	element_b->set_data(elements);
+	m_arr.get_buffer(pos_b).set_data(positions);
+	m_arr.get_buffer(uv_b).set_data(uvs);
+	m_arr.get_buffer(normal_b).set_data(norms);
+	m_arr.get_buffer(element_b).set_data(elements);
 
 	m_arr.set_vertex_ct(elements.size());
 }

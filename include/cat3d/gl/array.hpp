@@ -7,7 +7,6 @@
 #include "cat3d/gl/primitives.hpp"
 
 namespace cat3d::gl {
-
 /**
  * @brief Abstraction of an OpenGL Vertex Array Object
  * 
@@ -15,23 +14,36 @@ namespace cat3d::gl {
 class array {
 public:
 	array();
-	~array();
+
+	/**
+	 * @brief Delete the internal opengl representation
+	 */
+	void del();
 
 	/**
 	 * @brief Attach a new buffer to the vertex array
 	 * 
 	 * @param index The index of the buffer in the shader's layout
 	 * @param size 1,2,3, or 4
-	 * @return buffer* The generated buffer.
+	 * @return size_t The id of the generated buffer.
 	 */
-	buffer* gen_buffer(GLuint index, GLuint size);
+	size_t gen_buffer(GLuint index, GLuint size);
 
 	/**
 	 * @brief Bind a new element buffer to the vertex array 
 	 * 
-	 * @return buffer* A pointer to the element buffer
+	 * @return size_t The id of the element buffer
 	 */
-	buffer* gen_element_buffer();
+	size_t gen_element_buffer();
+
+	/**
+	 * @brief Get the buffer at the given id
+	 *
+	 * @param id The id of the buffer
+	 * 
+	 * @returns buffer& A reference to the buffer
+	 */
+	buffer& get_buffer(size_t id);
 
 	/**
 	 * @brief Disable an attribute in this array
@@ -89,7 +101,8 @@ private:
 	/// is an element buffer present?
 	bool m_element_present = false;
 
-	std::vector<buffer*> m_buffers;
+	/// all internally stored buffers
+	std::vector<buffer> m_buffers;
 
 	/// bind the vertex array for editing
 	void bind();
