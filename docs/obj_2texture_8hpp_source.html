@@ -73,33 +73,38 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;cat3d/gl/texture.hpp&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;cat3d/scene.hpp&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>cat3d::obj {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classcat3d_1_1obj_1_1texture.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcat3d_1_1obj_1_1texture.html">texture</a> : <span class="keyword">public</span> <a class="code" href="classcat3d_1_1scene_1_1node.html">scene::node</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classcat3d_1_1obj_1_1texture.html#ada12ac3203c379b150b962712c27f97e">   18</a></span>&#160;    <a class="code" href="classcat3d_1_1obj_1_1texture.html#ada12ac3203c379b150b962712c27f97e">texture</a>(<span class="keyword">const</span> std::string&amp; path);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classcat3d_1_1obj_1_1texture.html#afe4e9af9ae66569e4b8f21ad36b92404">   21</a></span>&#160;    <a class="code" href="classcat3d_1_1obj_1_1texture.html#afe4e9af9ae66569e4b8f21ad36b92404">~texture</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classcat3d_1_1obj_1_1texture.html#a48d1538b5c24bf96f07681a3318bc266">   25</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcat3d_1_1obj_1_1texture.html#a48d1538b5c24bf96f07681a3318bc266">update_self</a>(<a class="code" href="classcat3d_1_1window.html">window</a>&amp; win);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classcat3d_1_1gl_1_1texture.html">gl::texture</a> m_tex;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">size_t</span> m_hook_id;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">bool</span> m_hooked;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;cat3d/resource.hpp&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;cat3d/scene.hpp&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>cat3d::obj {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classcat3d_1_1obj_1_1texture.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcat3d_1_1obj_1_1texture.html">texture</a> : <span class="keyword">public</span> <a class="code" href="classcat3d_1_1scene_1_1node.html">scene::node</a> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classcat3d_1_1obj_1_1texture.html#ada12ac3203c379b150b962712c27f97e">   19</a></span>&#160;    <a class="code" href="classcat3d_1_1obj_1_1texture.html#ada12ac3203c379b150b962712c27f97e">texture</a>(<span class="keyword">const</span> std::string&amp; path);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classcat3d_1_1obj_1_1texture.html#aab65e97f524c92c45ac3fb7774fd2eed">   26</a></span>&#160;    <a class="code" href="classcat3d_1_1obj_1_1texture.html#aab65e97f524c92c45ac3fb7774fd2eed">texture</a>(<a class="code" href="classcat3d_1_1color.html">color</a> col);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classcat3d_1_1obj_1_1texture.html#afe4e9af9ae66569e4b8f21ad36b92404">   29</a></span>&#160;    <a class="code" href="classcat3d_1_1obj_1_1texture.html#afe4e9af9ae66569e4b8f21ad36b92404">~texture</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classcat3d_1_1obj_1_1texture.html#a48d1538b5c24bf96f07681a3318bc266">   33</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcat3d_1_1obj_1_1texture.html#a48d1538b5c24bf96f07681a3318bc266">update_self</a>(<a class="code" href="classcat3d_1_1window.html">window</a>&amp; win);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classcat3d_1_1gl_1_1texture.html">gl::texture</a> m_tex;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">size_t</span> m_hook_id;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">bool</span> m_hooked;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclasscat3d_1_1color_html"><div class="ttname"><a href="classcat3d_1_1color.html">cat3d::color</a></div><div class="ttdoc">Base color class.</div><div class="ttdef"><b>Definition:</b> color.hpp:11</div></div>
 <div class="ttc" id="aclasscat3d_1_1window_html"><div class="ttname"><a href="classcat3d_1_1window.html">cat3d::window</a></div><div class="ttdoc">Manages internal window api / state.</div><div class="ttdef"><b>Definition:</b> window.hpp:17</div></div>
 <div class="ttc" id="aclasscat3d_1_1obj_1_1texture_html_afe4e9af9ae66569e4b8f21ad36b92404"><div class="ttname"><a href="classcat3d_1_1obj_1_1texture.html#afe4e9af9ae66569e4b8f21ad36b92404">cat3d::obj::texture::~texture</a></div><div class="ttdeci">~texture()</div><div class="ttdoc">disconnects from the bind hook</div></div>
 <div class="ttc" id="aclasscat3d_1_1obj_1_1texture_html_ada12ac3203c379b150b962712c27f97e"><div class="ttname"><a href="classcat3d_1_1obj_1_1texture.html#ada12ac3203c379b150b962712c27f97e">cat3d::obj::texture::texture</a></div><div class="ttdeci">texture(const std::string &amp;path)</div><div class="ttdoc">Initialize the texture.</div></div>
-<div class="ttc" id="aclasscat3d_1_1obj_1_1texture_html"><div class="ttname"><a href="classcat3d_1_1obj_1_1texture.html">cat3d::obj::texture</a></div><div class="ttdoc">Scene node to bind a texture to the parent object on render.</div><div class="ttdef"><b>Definition:</b> texture.hpp:11</div></div>
+<div class="ttc" id="aclasscat3d_1_1obj_1_1texture_html"><div class="ttname"><a href="classcat3d_1_1obj_1_1texture.html">cat3d::obj::texture</a></div><div class="ttdoc">Scene node to bind a texture to the parent object on render.</div><div class="ttdef"><b>Definition:</b> texture.hpp:12</div></div>
+<div class="ttc" id="aclasscat3d_1_1obj_1_1texture_html_aab65e97f524c92c45ac3fb7774fd2eed"><div class="ttname"><a href="classcat3d_1_1obj_1_1texture.html#aab65e97f524c92c45ac3fb7774fd2eed">cat3d::obj::texture::texture</a></div><div class="ttdeci">texture(color col)</div><div class="ttdoc">Initialize the texture.</div></div>
 <div class="ttc" id="aclasscat3d_1_1scene_1_1node_html"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html">cat3d::scene::node</a></div><div class="ttdoc">Basic, semi-abstract scene node class. Can have children which are other scene nodes,...</div><div class="ttdef"><b>Definition:</b> node.hpp:28</div></div>
-<div class="ttc" id="aclasscat3d_1_1gl_1_1texture_html"><div class="ttname"><a href="classcat3d_1_1gl_1_1texture.html">cat3d::gl::texture</a></div><div class="ttdoc">Internal opengl texture representation.</div><div class="ttdef"><b>Definition:</b> texture.hpp:12</div></div>
+<div class="ttc" id="aclasscat3d_1_1gl_1_1texture_html"><div class="ttname"><a href="classcat3d_1_1gl_1_1texture.html">cat3d::gl::texture</a></div><div class="ttdoc">Internal opengl texture representation.</div><div class="ttdef"><b>Definition:</b> texture.hpp:29</div></div>
 <div class="ttc" id="aclasscat3d_1_1obj_1_1texture_html_a48d1538b5c24bf96f07681a3318bc266"><div class="ttname"><a href="classcat3d_1_1obj_1_1texture.html#a48d1538b5c24bf96f07681a3318bc266">cat3d::obj::texture::update_self</a></div><div class="ttdeci">void update_self(window &amp;win)</div><div class="ttdoc">self update</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
