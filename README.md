@@ -43,26 +43,26 @@ More examples are located in the [`examples/`](examples/) directory.
 int main() {
 	namespace obj = cat3d::obj;
 
-    /// initialize cat3d
+	/// initialize cat3d
 	cat3d::init(cat3d::opts(
 		{ { cat3d::WIDTH, 800 },
 		  { cat3d::HEIGHT, 600 },
 		  { cat3d::TITLE, "spinning-cube" },
 		  { cat3d::CLEAR_COLOR, cat3d::color::from_rgb(100, 242, 245) } }));
 
-    /// set up the scene
+	/// set up the scene
 	cat3d::scene::node* root = cat3d::new_scene();
 
 	obj::camera* cam = root->create<obj::camera>(glm::vec3(0, 2, -4), glm::vec3(0, 0, 0), 75.f);
 	obj::model* cube = root->create<obj::model>("examples/cube.obj");
 
-    /// attach a timer onto the cube to rotate it each frame
+	/// attach a timer onto the cube to rotate it each frame
 	cube->create<obj::timer>([cube](cat3d::util::time dt) {
 		float dts = dt.as_seconds();
 		cube->transform().rotate(glm::vec3(1.f * dts, 0.2f * dts, 0));
 	});
 
-    /// run the engine
+	/// run the engine
 	return cat3d::run();
 }
 ```
