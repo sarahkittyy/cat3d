@@ -39,6 +39,9 @@ util::transform node::local_transform() const {
 }
 
 node* node::parent() const {
+	if (m_root) {
+		throw std::runtime_error("No parent of a root element!");
+	}
 	return m_parent;
 }
 
