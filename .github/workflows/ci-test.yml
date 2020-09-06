@@ -8,7 +8,7 @@ on:
 jobs:
   test:
     name: Run the tests <3
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       CC: gcc-9
       CXX: g++-9
@@ -16,7 +16,7 @@ jobs:
       - name: deps
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y libglfw3-dev libglew-dev
+          sudo apt-get install -y libglfw3-dev libglew-dev libglm-dev
       - uses: actions/checkout@v2
       - name: generate
         run: cmake -DBUILD_TESTS=ON -DBUILD_EXAMPLES=ON ..

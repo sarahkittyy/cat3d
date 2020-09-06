@@ -8,6 +8,7 @@ A tiny OpenGL 3D engine library written in and for C++.
 
 - [glfw3](https://www.glfw.org/)
 - [GLEW](http://glew.sourceforge.net/)
+- [glm](https://glm.g-truc.net/)
 
 ## Building from source
 
