@@ -75,68 +75,86 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;glm/glm.hpp&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;cat3d/util/clock.hpp&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;cat3d/util/transform.hpp&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;cat3d/window.hpp&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>cat3d::scene {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcat3d_1_1scene_1_1node.html">node</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classcat3d_1_1scene_1_1node.html">node</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#af86f6ad68ba0356ce1459211478bc8d5">   26</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="classcat3d_1_1scene_1_1node.html">node</a>* <a class="code" href="classcat3d_1_1scene_1_1node.html#af86f6ad68ba0356ce1459211478bc8d5">new_root</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#add95b324af973851c620b724cce105db">   29</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classcat3d_1_1scene_1_1node.html#add95b324af973851c620b724cce105db">~node</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#ae407a4c7ece9a51995aad96dcd71fa5e">   36</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcat3d_1_1scene_1_1node.html#ae407a4c7ece9a51995aad96dcd71fa5e">delete_child</a>(<a class="code" href="classcat3d_1_1scene_1_1node.html">node</a>* child);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a1ff3c273a83d230b13a33027d3671c83">   42</a></span>&#160;    <a class="code" href="classcat3d_1_1util_1_1transform.html">util::transform</a> <a class="code" href="classcat3d_1_1scene_1_1node.html#a1ff3c273a83d230b13a33027d3671c83">global_transform</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a0dd5b2e01a6912915db1fcb331c9af81">   48</a></span>&#160;    <a class="code" href="classcat3d_1_1util_1_1transform.html">util::transform</a> <a class="code" href="classcat3d_1_1scene_1_1node.html#a0dd5b2e01a6912915db1fcb331c9af81">local_transform</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#acaa7d61fb4fe4e4e49d0b9e230b5f3b0">   57</a></span>&#160;    <a class="code" href="classcat3d_1_1util_1_1transform.html">util::transform</a>&amp; <a class="code" href="classcat3d_1_1scene_1_1node.html#acaa7d61fb4fe4e4e49d0b9e230b5f3b0">transform</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#aef4f9b5cf078af72697847d4a15d114b">   63</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcat3d_1_1scene_1_1node.html#aef4f9b5cf078af72697847d4a15d114b">update</a>(<a class="code" href="classcat3d_1_1window.html">window</a>&amp; win);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a46ad6277e5f99c1ac86312e95d5d02aa">   69</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcat3d_1_1scene_1_1node.html#a46ad6277e5f99c1ac86312e95d5d02aa">render</a>(<a class="code" href="classcat3d_1_1window.html">window</a>&amp; win);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a5fc5805c63937e4b074e69856f1c7b99">   76</a></span>&#160;    <a class="code" href="classcat3d_1_1scene_1_1node.html">node</a>* <a class="code" href="classcat3d_1_1scene_1_1node.html#a5fc5805c63937e4b074e69856f1c7b99">parent</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a746c65aefe5b42baf30ff34bd33508d1">   83</a></span>&#160;    <a class="code" href="classcat3d_1_1scene_1_1node.html">node</a>* <a class="code" href="classcat3d_1_1scene_1_1node.html#a746c65aefe5b42baf30ff34bd33508d1">create_node</a>();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Obj, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a694a2e464ea7a5fe8ed97cfdbfd6a7f4">   95</a></span>&#160;    Obj* <a class="code" href="classcat3d_1_1scene_1_1node.html#a694a2e464ea7a5fe8ed97cfdbfd6a7f4">create</a>(Args... args) {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        Obj* o      = <span class="keyword">new</span> Obj(args...);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        o-&gt;m_root   = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        o-&gt;m_parent = <span class="keyword">this</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        m_children.push_back((<a class="code" href="classcat3d_1_1scene_1_1node.html">node</a>*)o);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">return</span> o;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a564e296e8672951adbed7a3bf3666cfc">  109</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classcat3d_1_1scene_1_1node.html#a564e296e8672951adbed7a3bf3666cfc">update_self</a>(<a class="code" href="classcat3d_1_1window.html">window</a>&amp; win);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a4749c79cd7f24dc1afa4746775161c10">  116</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classcat3d_1_1scene_1_1node.html#a4749c79cd7f24dc1afa4746775161c10">render_self</a>(<a class="code" href="classcat3d_1_1window.html">window</a>&amp; win);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">bool</span> m_root = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="classcat3d_1_1scene_1_1node.html">node</a>* m_parent = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    std::vector&lt;node*&gt; m_children;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <a class="code" href="classcat3d_1_1util_1_1transform.html">util::transform</a> m_transform;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">void</span> push_transform(<a class="code" href="classcat3d_1_1window.html">window</a>&amp; win);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;};</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;cat3d/util/clock.hpp&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;cat3d/util/transform.hpp&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;cat3d/window.hpp&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>cat3d::scene {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">enum</span> node_bind_loc {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    PRE_UPDATE,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    POST_UPDATE,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    PRE_RENDER,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    POST_RENDER,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcat3d_1_1scene_1_1node.html">node</a> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classcat3d_1_1scene_1_1node.html">node</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#af86f6ad68ba0356ce1459211478bc8d5">   37</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="classcat3d_1_1scene_1_1node.html">node</a>* <a class="code" href="classcat3d_1_1scene_1_1node.html#af86f6ad68ba0356ce1459211478bc8d5">new_root</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#add95b324af973851c620b724cce105db">   40</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classcat3d_1_1scene_1_1node.html#add95b324af973851c620b724cce105db">~node</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#ae407a4c7ece9a51995aad96dcd71fa5e">   47</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcat3d_1_1scene_1_1node.html#ae407a4c7ece9a51995aad96dcd71fa5e">delete_child</a>(<a class="code" href="classcat3d_1_1scene_1_1node.html">node</a>* child);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a1ff3c273a83d230b13a33027d3671c83">   53</a></span>&#160;    <a class="code" href="classcat3d_1_1util_1_1transform.html">util::transform</a> <a class="code" href="classcat3d_1_1scene_1_1node.html#a1ff3c273a83d230b13a33027d3671c83">global_transform</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a0dd5b2e01a6912915db1fcb331c9af81">   59</a></span>&#160;    <a class="code" href="classcat3d_1_1util_1_1transform.html">util::transform</a> <a class="code" href="classcat3d_1_1scene_1_1node.html#a0dd5b2e01a6912915db1fcb331c9af81">local_transform</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#acaa7d61fb4fe4e4e49d0b9e230b5f3b0">   68</a></span>&#160;    <a class="code" href="classcat3d_1_1util_1_1transform.html">util::transform</a>&amp; <a class="code" href="classcat3d_1_1scene_1_1node.html#acaa7d61fb4fe4e4e49d0b9e230b5f3b0">transform</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#aef4f9b5cf078af72697847d4a15d114b">   74</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcat3d_1_1scene_1_1node.html#aef4f9b5cf078af72697847d4a15d114b">update</a>(<a class="code" href="classcat3d_1_1window.html">window</a>&amp; win);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a46ad6277e5f99c1ac86312e95d5d02aa">   80</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcat3d_1_1scene_1_1node.html#a46ad6277e5f99c1ac86312e95d5d02aa">render</a>(<a class="code" href="classcat3d_1_1window.html">window</a>&amp; win);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a5fc5805c63937e4b074e69856f1c7b99">   87</a></span>&#160;    <a class="code" href="classcat3d_1_1scene_1_1node.html">node</a>* <a class="code" href="classcat3d_1_1scene_1_1node.html#a5fc5805c63937e4b074e69856f1c7b99">parent</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a746c65aefe5b42baf30ff34bd33508d1">   94</a></span>&#160;    <a class="code" href="classcat3d_1_1scene_1_1node.html">node</a>* <a class="code" href="classcat3d_1_1scene_1_1node.html#a746c65aefe5b42baf30ff34bd33508d1">create_node</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Obj, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a694a2e464ea7a5fe8ed97cfdbfd6a7f4">  106</a></span>&#160;    Obj* <a class="code" href="classcat3d_1_1scene_1_1node.html#a694a2e464ea7a5fe8ed97cfdbfd6a7f4">create</a>(Args... args) {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        Obj* o      = <span class="keyword">new</span> Obj(args...);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        o-&gt;m_root   = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        o-&gt;m_parent = <span class="keyword">this</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        m_children.push_back((<a class="code" href="classcat3d_1_1scene_1_1node.html">node</a>*)o);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> o;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#ae56cb51bfba0ae49fa38e59631fadf10">  122</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classcat3d_1_1scene_1_1node.html#ae56cb51bfba0ae49fa38e59631fadf10">bind</a>(node_bind_loc loc, std::function&lt;<span class="keywordtype">void</span>()&gt; fn);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#ad2d47dd1fdc634ac711497744d22cf65">  131</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcat3d_1_1scene_1_1node.html#ad2d47dd1fdc634ac711497744d22cf65">unbind</a>(<span class="keywordtype">size_t</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a564e296e8672951adbed7a3bf3666cfc">  139</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classcat3d_1_1scene_1_1node.html#a564e296e8672951adbed7a3bf3666cfc">update_self</a>(<a class="code" href="classcat3d_1_1window.html">window</a>&amp; win);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="classcat3d_1_1scene_1_1node.html#a4749c79cd7f24dc1afa4746775161c10">  146</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classcat3d_1_1scene_1_1node.html#a4749c79cd7f24dc1afa4746775161c10">render_self</a>(<a class="code" href="classcat3d_1_1window.html">window</a>&amp; win);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">bool</span> m_root = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <a class="code" href="classcat3d_1_1scene_1_1node.html">node</a>* m_parent = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    std::vector&lt;node*&gt; m_children;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    std::unordered_map&lt;size_t, std::pair&lt;node_bind_loc, std::function&lt;void()&gt;&gt;&gt; m_hooks;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordtype">size_t</span> m_next_hook_id = 0;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">void</span> run_hooks(node_bind_loc l);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <a class="code" href="classcat3d_1_1util_1_1transform.html">util::transform</a> m_transform;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">void</span> push_transform(<a class="code" href="classcat3d_1_1window.html">window</a>&amp; win);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;};</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclasscat3d_1_1scene_1_1node_html_af86f6ad68ba0356ce1459211478bc8d5"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html#af86f6ad68ba0356ce1459211478bc8d5">cat3d::scene::node::new_root</a></div><div class="ttdeci">static node * new_root()</div><div class="ttdoc">Create a new root scene node.</div></div>
 <div class="ttc" id="aclasscat3d_1_1window_html"><div class="ttname"><a href="classcat3d_1_1window.html">cat3d::window</a></div><div class="ttdoc">Manages internal window api / state.</div><div class="ttdef"><b>Definition:</b> window.hpp:17</div></div>
-<div class="ttc" id="aclasscat3d_1_1scene_1_1node_html_a694a2e464ea7a5fe8ed97cfdbfd6a7f4"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html#a694a2e464ea7a5fe8ed97cfdbfd6a7f4">cat3d::scene::node::create</a></div><div class="ttdeci">Obj * create(Args... args)</div><div class="ttdoc">Add a derived node class as a child.</div><div class="ttdef"><b>Definition:</b> node.hpp:95</div></div>
+<div class="ttc" id="aclasscat3d_1_1scene_1_1node_html_a694a2e464ea7a5fe8ed97cfdbfd6a7f4"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html#a694a2e464ea7a5fe8ed97cfdbfd6a7f4">cat3d::scene::node::create</a></div><div class="ttdeci">Obj * create(Args... args)</div><div class="ttdoc">Add a derived node class as a child.</div><div class="ttdef"><b>Definition:</b> node.hpp:106</div></div>
 <div class="ttc" id="aclasscat3d_1_1scene_1_1node_html_ae407a4c7ece9a51995aad96dcd71fa5e"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html#ae407a4c7ece9a51995aad96dcd71fa5e">cat3d::scene::node::delete_child</a></div><div class="ttdeci">void delete_child(node *child)</div><div class="ttdoc">Remove the given child node.</div></div>
 <div class="ttc" id="aclasscat3d_1_1scene_1_1node_html_a4749c79cd7f24dc1afa4746775161c10"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html#a4749c79cd7f24dc1afa4746775161c10">cat3d::scene::node::render_self</a></div><div class="ttdeci">virtual void render_self(window &amp;win)</div><div class="ttdoc">Overridden by child classes to implement custom rendering.</div></div>
 <div class="ttc" id="aclasscat3d_1_1scene_1_1node_html_a46ad6277e5f99c1ac86312e95d5d02aa"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html#a46ad6277e5f99c1ac86312e95d5d02aa">cat3d::scene::node::render</a></div><div class="ttdeci">void render(window &amp;win)</div><div class="ttdoc">Called once per render. Renders this node and all children.</div></div>
@@ -145,10 +163,12 @@ $(function() {
 <div class="ttc" id="aclasscat3d_1_1scene_1_1node_html_aef4f9b5cf078af72697847d4a15d114b"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html#aef4f9b5cf078af72697847d4a15d114b">cat3d::scene::node::update</a></div><div class="ttdeci">void update(window &amp;win)</div><div class="ttdoc">Called once per frame. Updates this node.</div></div>
 <div class="ttc" id="aclasscat3d_1_1scene_1_1node_html_a564e296e8672951adbed7a3bf3666cfc"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html#a564e296e8672951adbed7a3bf3666cfc">cat3d::scene::node::update_self</a></div><div class="ttdeci">virtual void update_self(window &amp;win)</div><div class="ttdoc">Overridden by child classes to implement custom behavior.</div></div>
 <div class="ttc" id="aclasscat3d_1_1scene_1_1node_html_a0dd5b2e01a6912915db1fcb331c9af81"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html#a0dd5b2e01a6912915db1fcb331c9af81">cat3d::scene::node::local_transform</a></div><div class="ttdeci">util::transform local_transform() const</div><div class="ttdoc">Get the node's transform relative to itself.</div></div>
-<div class="ttc" id="aclasscat3d_1_1scene_1_1node_html"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html">cat3d::scene::node</a></div><div class="ttdoc">Basic, semi-abstract scene node class. Can have children which are other scene nodes,...</div><div class="ttdef"><b>Definition:</b> node.hpp:17</div></div>
+<div class="ttc" id="aclasscat3d_1_1scene_1_1node_html"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html">cat3d::scene::node</a></div><div class="ttdoc">Basic, semi-abstract scene node class. Can have children which are other scene nodes,...</div><div class="ttdef"><b>Definition:</b> node.hpp:28</div></div>
 <div class="ttc" id="aclasscat3d_1_1util_1_1transform_html"><div class="ttname"><a href="classcat3d_1_1util_1_1transform.html">cat3d::util::transform</a></div><div class="ttdoc">Transformation class to manage 3D space transforms.</div><div class="ttdef"><b>Definition:</b> transform.hpp:12</div></div>
 <div class="ttc" id="aclasscat3d_1_1scene_1_1node_html_a746c65aefe5b42baf30ff34bd33508d1"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html#a746c65aefe5b42baf30ff34bd33508d1">cat3d::scene::node::create_node</a></div><div class="ttdeci">node * create_node()</div><div class="ttdoc">Create a child node.</div></div>
 <div class="ttc" id="aclasscat3d_1_1scene_1_1node_html_acaa7d61fb4fe4e4e49d0b9e230b5f3b0"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html#acaa7d61fb4fe4e4e49d0b9e230b5f3b0">cat3d::scene::node::transform</a></div><div class="ttdeci">util::transform &amp; transform()</div><div class="ttdoc">Access to the underlying transform.</div></div>
+<div class="ttc" id="aclasscat3d_1_1scene_1_1node_html_ae56cb51bfba0ae49fa38e59631fadf10"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html#ae56cb51bfba0ae49fa38e59631fadf10">cat3d::scene::node::bind</a></div><div class="ttdeci">size_t bind(node_bind_loc loc, std::function&lt; void()&gt; fn)</div><div class="ttdoc">Add a hook into the update cycle of the node.</div></div>
+<div class="ttc" id="aclasscat3d_1_1scene_1_1node_html_ad2d47dd1fdc634ac711497744d22cf65"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html#ad2d47dd1fdc634ac711497744d22cf65">cat3d::scene::node::unbind</a></div><div class="ttdeci">void unbind(size_t id)</div><div class="ttdoc">Unbind a hook from the node.</div></div>
 <div class="ttc" id="aclasscat3d_1_1scene_1_1node_html_a5fc5805c63937e4b074e69856f1c7b99"><div class="ttname"><a href="classcat3d_1_1scene_1_1node.html#a5fc5805c63937e4b074e69856f1c7b99">cat3d::scene::node::parent</a></div><div class="ttdeci">node * parent() const</div><div class="ttdoc">Get this node's parent.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -81,7 +81,7 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="node_8hpp_source.html">node.hpp</a>&gt;</code></p>
 
-<p>Inherited by <a class="el" href="classcat3d_1_1obj_1_1camera.html">cat3d::obj::camera</a>, <a class="el" href="classcat3d_1_1obj_1_1model.html">cat3d::obj::model</a>, and <a class="el" href="classcat3d_1_1obj_1_1timer.html">cat3d::obj::timer</a>.</p>
+<p>Inherited by <a class="el" href="classcat3d_1_1obj_1_1camera.html">cat3d::obj::camera</a>, <a class="el" href="classcat3d_1_1obj_1_1model.html">cat3d::obj::model</a>, <a class="el" href="classcat3d_1_1obj_1_1texture.html">cat3d::obj::texture</a>, and <a class="el" href="classcat3d_1_1obj_1_1timer.html">cat3d::obj::timer</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -121,6 +121,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a694a2e464ea7a5fe8ed97cfdbfd6a7f4"><td class="memTemplItemLeft" align="right" valign="top">Obj *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcat3d_1_1scene_1_1node.html#a694a2e464ea7a5fe8ed97cfdbfd6a7f4">create</a> (Args... args)</td></tr>
 <tr class="memdesc:a694a2e464ea7a5fe8ed97cfdbfd6a7f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a derived node class as a child.  <a href="classcat3d_1_1scene_1_1node.html#a694a2e464ea7a5fe8ed97cfdbfd6a7f4">More...</a><br /></td></tr>
 <tr class="separator:a694a2e464ea7a5fe8ed97cfdbfd6a7f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae56cb51bfba0ae49fa38e59631fadf10"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcat3d_1_1scene_1_1node.html#ae56cb51bfba0ae49fa38e59631fadf10">bind</a> (node_bind_loc loc, std::function&lt; void()&gt; fn)</td></tr>
+<tr class="memdesc:ae56cb51bfba0ae49fa38e59631fadf10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a hook into the update cycle of the node.  <a href="classcat3d_1_1scene_1_1node.html#ae56cb51bfba0ae49fa38e59631fadf10">More...</a><br /></td></tr>
+<tr class="separator:ae56cb51bfba0ae49fa38e59631fadf10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2d47dd1fdc634ac711497744d22cf65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcat3d_1_1scene_1_1node.html#ad2d47dd1fdc634ac711497744d22cf65">unbind</a> (size_t id)</td></tr>
+<tr class="memdesc:ad2d47dd1fdc634ac711497744d22cf65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind a hook from the node.  <a href="classcat3d_1_1scene_1_1node.html#ad2d47dd1fdc634ac711497744d22cf65">More...</a><br /></td></tr>
+<tr class="separator:ad2d47dd1fdc634ac711497744d22cf65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -140,6 +146,44 @@ Protected Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Basic, semi-abstract scene node class. Can have children which are other scene nodes, or derived types. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae56cb51bfba0ae49fa38e59631fadf10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae56cb51bfba0ae49fa38e59631fadf10">&#9670;&nbsp;</a></span>bind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t cat3d::scene::node::bind </td>
+          <td>(</td>
+          <td class="paramtype">node_bind_loc&#160;</td>
+          <td class="paramname"><em>loc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>fn</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a hook into the update cycle of the node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">loc</td><td>The location in the update cycle to hook into </td></tr>
+    <tr><td class="paramname">fn</td><td>The function to run</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>size_t An event token id, to unbind once the hooked class goes out of scope. </dd></dl>
+
+</div>
+</div>
 <a id="a694a2e464ea7a5fe8ed97cfdbfd6a7f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a694a2e464ea7a5fe8ed97cfdbfd6a7f4">&#9670;&nbsp;</a></span>create()</h2>
 
@@ -330,6 +374,33 @@ template&lt;typename Obj , typename... Args&gt; </div>
 
 </div>
 </div>
+<a id="ad2d47dd1fdc634ac711497744d22cf65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2d47dd1fdc634ac711497744d22cf65">&#9670;&nbsp;</a></span>unbind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cat3d::scene::node::unbind </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unbind a hook from the node. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>Not unbinding a function while it goes out of scope is an error!</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The event token id </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a564e296e8672951adbed7a3bf3666cfc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a564e296e8672951adbed7a3bf3666cfc">&#9670;&nbsp;</a></span>update_self()</h2>
 
@@ -362,7 +433,7 @@ template&lt;typename Obj , typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classcat3d_1_1obj_1_1timer.html#af51da67ba333efcc0191e5e485658112">cat3d::obj::timer</a>, <a class="el" href="classcat3d_1_1obj_1_1model.html#a8d52b180eb188f9f4dfa936277f4f1bc">cat3d::obj::model</a>, and <a class="el" href="classcat3d_1_1obj_1_1camera.html#a141e0cb48d38896c1a11529f1be31e73">cat3d::obj::camera</a>.</p>
+<p>Reimplemented in <a class="el" href="classcat3d_1_1obj_1_1timer.html#af51da67ba333efcc0191e5e485658112">cat3d::obj::timer</a>, <a class="el" href="classcat3d_1_1obj_1_1texture.html#a48d1538b5c24bf96f07681a3318bc266">cat3d::obj::texture</a>, <a class="el" href="classcat3d_1_1obj_1_1model.html#a8d52b180eb188f9f4dfa936277f4f1bc">cat3d::obj::model</a>, and <a class="el" href="classcat3d_1_1obj_1_1camera.html#a141e0cb48d38896c1a11529f1be31e73">cat3d::obj::camera</a>.</p>
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cat3d: cat3d::obj::camera Class Reference</title>
+<title>cat3d: cat3d::obj::texture Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,43 +62,35 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>cat3d</b></li><li class="navelem"><b>obj</b></li><li class="navelem"><a class="el" href="classcat3d_1_1obj_1_1camera.html">camera</a></li>  </ul>
+<li class="navelem"><b>cat3d</b></li><li class="navelem"><b>obj</b></li><li class="navelem"><a class="el" href="classcat3d_1_1obj_1_1texture.html">texture</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="classcat3d_1_1obj_1_1camera-members.html">List of all members</a>  </div>
+<a href="classcat3d_1_1obj_1_1texture-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">cat3d::obj::camera Class Reference</div>  </div>
+<div class="title">cat3d::obj::texture Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Node for managing the camera's perspective on the scene.  
- <a href="classcat3d_1_1obj_1_1camera.html#details">More...</a></p>
+<p>Scene node to bind a texture to the parent object on render.  
+ <a href="classcat3d_1_1obj_1_1texture.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="camera_8hpp_source.html">camera.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="obj_2texture_8hpp_source.html">texture.hpp</a>&gt;</code></p>
 
 <p>Inherits <a class="el" href="classcat3d_1_1scene_1_1node.html">cat3d::scene::node</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a59fee48e96ec1df62606ddd92db96339"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcat3d_1_1obj_1_1camera.html#a59fee48e96ec1df62606ddd92db96339">camera</a> (glm::vec3 pos, glm::vec3 aim, float fov=75.f)</td></tr>
-<tr class="memdesc:a59fee48e96ec1df62606ddd92db96339"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classcat3d_1_1obj_1_1camera.html#a59fee48e96ec1df62606ddd92db96339">More...</a><br /></td></tr>
-<tr class="separator:a59fee48e96ec1df62606ddd92db96339"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d31950ecce93a7e64e6cc0d9a6a0216"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcat3d_1_1obj_1_1camera.html#a4d31950ecce93a7e64e6cc0d9a6a0216">set_pos</a> (glm::vec3 new_pos)</td></tr>
-<tr class="memdesc:a4d31950ecce93a7e64e6cc0d9a6a0216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the camera's center.  <a href="classcat3d_1_1obj_1_1camera.html#a4d31950ecce93a7e64e6cc0d9a6a0216">More...</a><br /></td></tr>
-<tr class="separator:a4d31950ecce93a7e64e6cc0d9a6a0216"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a300591f6a174c5f3c2b1905e9f1d3b72"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcat3d_1_1obj_1_1camera.html#a300591f6a174c5f3c2b1905e9f1d3b72">get_pos</a> () const</td></tr>
-<tr class="memdesc:a300591f6a174c5f3c2b1905e9f1d3b72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the camera's center.  <a href="classcat3d_1_1obj_1_1camera.html#a300591f6a174c5f3c2b1905e9f1d3b72">More...</a><br /></td></tr>
-<tr class="separator:a300591f6a174c5f3c2b1905e9f1d3b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0f6a3151f03656f40e0cbdba3e364c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcat3d_1_1obj_1_1camera.html#af0f6a3151f03656f40e0cbdba3e364c0">set_aim</a> (glm::vec3 new_aim)</td></tr>
-<tr class="memdesc:af0f6a3151f03656f40e0cbdba3e364c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the location that the camera points towards.  <a href="classcat3d_1_1obj_1_1camera.html#af0f6a3151f03656f40e0cbdba3e364c0">More...</a><br /></td></tr>
-<tr class="separator:af0f6a3151f03656f40e0cbdba3e364c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dad4e3fba17cf3a7a418e9bd519c3f8"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcat3d_1_1obj_1_1camera.html#a9dad4e3fba17cf3a7a418e9bd519c3f8">get_aim</a> () const</td></tr>
-<tr class="memdesc:a9dad4e3fba17cf3a7a418e9bd519c3f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the camera's currently focused point.  <a href="classcat3d_1_1obj_1_1camera.html#a9dad4e3fba17cf3a7a418e9bd519c3f8">More...</a><br /></td></tr>
-<tr class="separator:a9dad4e3fba17cf3a7a418e9bd519c3f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada12ac3203c379b150b962712c27f97e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcat3d_1_1obj_1_1texture.html#ada12ac3203c379b150b962712c27f97e">texture</a> (const std::string &amp;path)</td></tr>
+<tr class="memdesc:ada12ac3203c379b150b962712c27f97e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the texture.  <a href="classcat3d_1_1obj_1_1texture.html#ada12ac3203c379b150b962712c27f97e">More...</a><br /></td></tr>
+<tr class="separator:ada12ac3203c379b150b962712c27f97e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe4e9af9ae66569e4b8f21ad36b92404"><td class="memItemLeft" align="right" valign="top"><a id="afe4e9af9ae66569e4b8f21ad36b92404"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcat3d_1_1obj_1_1texture.html#afe4e9af9ae66569e4b8f21ad36b92404">~texture</a> ()</td></tr>
+<tr class="memdesc:afe4e9af9ae66569e4b8f21ad36b92404"><td class="mdescLeft">&#160;</td><td class="mdescRight">disconnects from the bind hook <br /></td></tr>
+<tr class="separator:afe4e9af9ae66569e4b8f21ad36b92404"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classcat3d_1_1scene_1_1node"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classcat3d_1_1scene_1_1node')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classcat3d_1_1scene_1_1node.html">cat3d::scene::node</a></td></tr>
 <tr class="memitem:add95b324af973851c620b724cce105db inherit pub_methods_classcat3d_1_1scene_1_1node"><td class="memItemLeft" align="right" valign="top"><a id="add95b324af973851c620b724cce105db"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcat3d_1_1scene_1_1node.html#add95b324af973851c620b724cce105db">~node</a> ()</td></tr>
@@ -145,9 +137,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a141e0cb48d38896c1a11529f1be31e73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcat3d_1_1obj_1_1camera.html#a141e0cb48d38896c1a11529f1be31e73">update_self</a> (<a class="el" href="classcat3d_1_1window.html">window</a> &amp;win)</td></tr>
-<tr class="memdesc:a141e0cb48d38896c1a11529f1be31e73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overridden by child classes to implement custom behavior.  <a href="classcat3d_1_1obj_1_1camera.html#a141e0cb48d38896c1a11529f1be31e73">More...</a><br /></td></tr>
-<tr class="separator:a141e0cb48d38896c1a11529f1be31e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48d1538b5c24bf96f07681a3318bc266"><td class="memItemLeft" align="right" valign="top"><a id="a48d1538b5c24bf96f07681a3318bc266"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcat3d_1_1obj_1_1texture.html#a48d1538b5c24bf96f07681a3318bc266">update_self</a> (<a class="el" href="classcat3d_1_1window.html">window</a> &amp;win)</td></tr>
+<tr class="memdesc:a48d1538b5c24bf96f07681a3318bc266"><td class="mdescLeft">&#160;</td><td class="mdescRight">self update <br /></td></tr>
+<tr class="separator:a48d1538b5c24bf96f07681a3318bc266"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classcat3d_1_1scene_1_1node"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classcat3d_1_1scene_1_1node')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classcat3d_1_1scene_1_1node.html">cat3d::scene::node</a></td></tr>
 <tr class="memitem:a4749c79cd7f24dc1afa4746775161c10 inherit pro_methods_classcat3d_1_1scene_1_1node"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcat3d_1_1scene_1_1node.html#a4749c79cd7f24dc1afa4746775161c10">render_self</a> (<a class="el" href="classcat3d_1_1window.html">window</a> &amp;win)</td></tr>
 <tr class="memdesc:a4749c79cd7f24dc1afa4746775161c10 inherit pro_methods_classcat3d_1_1scene_1_1node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overridden by child classes to implement custom rendering.  <a href="classcat3d_1_1scene_1_1node.html#a4749c79cd7f24dc1afa4746775161c10">More...</a><br /></td></tr>
@@ -161,184 +154,36 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:af86f6ad68ba0356ce1459211478bc8d5 inherit pub_static_methods_classcat3d_1_1scene_1_1node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Node for managing the camera's perspective on the scene. </p>
-<dl class="section remark"><dt>Remarks</dt><dd>Typically you only ever want one of these. </dd></dl>
+<div class="textblock"><p>Scene node to bind a texture to the parent object on render. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a59fee48e96ec1df62606ddd92db96339"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59fee48e96ec1df62606ddd92db96339">&#9670;&nbsp;</a></span>camera()</h2>
+<a id="ada12ac3203c379b150b962712c27f97e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada12ac3203c379b150b962712c27f97e">&#9670;&nbsp;</a></span>texture()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">cat3d::obj::camera::camera </td>
+          <td class="memname">cat3d::obj::texture::texture </td>
           <td>(</td>
-          <td class="paramtype">glm::vec3&#160;</td>
-          <td class="paramname"><em>pos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">glm::vec3&#160;</td>
-          <td class="paramname"><em>aim</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fov</em> = <code>75.f</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor. </p>
+<p>Initialize the texture. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pos</td><td>The position of the camera </td></tr>
-    <tr><td class="paramname">aim</td><td>Where the camera should aim </td></tr>
-    <tr><td class="paramname">fov</td><td>The FOV of the camera. </td></tr>
+    <tr><td class="paramname">path</td><td>The path to the texture. </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9dad4e3fba17cf3a7a418e9bd519c3f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dad4e3fba17cf3a7a418e9bd519c3f8">&#9670;&nbsp;</a></span>get_aim()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::vec3 cat3d::obj::camera::get_aim </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the camera's currently focused point. </p>
-<dl class="section return"><dt>Returns</dt><dd>glm::vec3 </dd></dl>
-
-</div>
-</div>
-<a id="a300591f6a174c5f3c2b1905e9f1d3b72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a300591f6a174c5f3c2b1905e9f1d3b72">&#9670;&nbsp;</a></span>get_pos()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::vec3 cat3d::obj::camera::get_pos </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrieve the camera's center. </p>
-<dl class="section return"><dt>Returns</dt><dd>glm::vec3 </dd></dl>
-
-</div>
-</div>
-<a id="af0f6a3151f03656f40e0cbdba3e364c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0f6a3151f03656f40e0cbdba3e364c0">&#9670;&nbsp;</a></span>set_aim()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void cat3d::obj::camera::set_aim </td>
-          <td>(</td>
-          <td class="paramtype">glm::vec3&#160;</td>
-          <td class="paramname"><em>new_aim</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the location that the camera points towards. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">new_aim</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a4d31950ecce93a7e64e6cc0d9a6a0216"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d31950ecce93a7e64e6cc0d9a6a0216">&#9670;&nbsp;</a></span>set_pos()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void cat3d::obj::camera::set_pos </td>
-          <td>(</td>
-          <td class="paramtype">glm::vec3&#160;</td>
-          <td class="paramname"><em>new_pos</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the camera's center. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">new_pos</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a141e0cb48d38896c1a11529f1be31e73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a141e0cb48d38896c1a11529f1be31e73">&#9670;&nbsp;</a></span>update_self()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void cat3d::obj::camera::update_self </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classcat3d_1_1window.html">window</a> &amp;&#160;</td>
-          <td class="paramname"><em>win</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Overridden by child classes to implement custom behavior. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">win</td><td>The main cat3d window. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Reimplemented from <a class="el" href="classcat3d_1_1scene_1_1node.html#a564e296e8672951adbed7a3bf3666cfc">cat3d::scene::node</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/cat3d/obj/<a class="el" href="camera_8hpp_source.html">camera.hpp</a></li>
+<li>include/cat3d/obj/<a class="el" href="obj_2texture_8hpp_source.html">texture.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
