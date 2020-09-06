@@ -34,7 +34,7 @@ glm::mat4 camera::view_matrix() const {
 }
 
 glm::mat4 camera::proj_matrix(window& win) const {
-	return glm::perspective(glm::radians(m_fov), float(win.size().x) / float(win.size().y), 0.1f, 15.f);
+	return glm::perspective(glm::radians(m_fov), float(win.size().x) / float(win.size().y), 0.1f, 1000.f);
 }
 
 }
