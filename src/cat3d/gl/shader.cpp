@@ -74,6 +74,7 @@ uniform mat4 proj;
 
 out vec4 colorV;
 out vec2 UV;
+out vec3 normV;
 
 void main() {
 	gl_Position = proj * view * model * vec4(pos, 1.0);
@@ -89,11 +90,14 @@ const char* shader::m_default_fs = R"/shader(
 
 in vec4 colorV;
 in vec2 UV;
+in vec3 normV;
 
 out vec4 color;
 
+uniform sampler2D texture0;
+
 void main() {
-	color = colorV;
+	color = texture(texture0, UV);
 }
 
 )/shader";

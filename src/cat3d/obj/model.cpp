@@ -26,7 +26,7 @@ model::model(const std::string& path) {
 		positions.push_back(v.Position.Z);
 
 		uvs.push_back(v.TextureCoordinate.X);
-		uvs.push_back(v.TextureCoordinate.Y);
+		uvs.push_back(1 - v.TextureCoordinate.Y);
 
 		norms.push_back(v.Normal.X);
 		norms.push_back(v.Normal.Y);
