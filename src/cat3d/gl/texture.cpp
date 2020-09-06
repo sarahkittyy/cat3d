@@ -1,5 +1,6 @@
 #include "cat3d/gl/texture.hpp"
 
+#include <iostream>
 #include <stdexcept>
 
 namespace cat3d::gl {

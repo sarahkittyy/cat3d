@@ -1,53 +1,39 @@
 #include "cat3d/obj/model.hpp"
-#include "OBJ_Loader/OBJ_Loader.h"
+#include "cat3d/resource.hpp"
 
 namespace cat3d::obj {
 
 model::model(const std::string& path) {
-	m_arr.set_primitive(gl::Triangles);
+	const auto& meshes = resource::get().mesh(path);
 
-	objl::Loader l;
-	l.LoadFile(path);
+	for (auto& mesh : meshes) {
+		m_arrs.push_back(gl::array());
+		gl::array& arr = m_arrs.back();
 
-	size_t pos_b = m_arr.gen_buffer(0, 3);
-	m_arr.disable_attrib(1);
-	size_t uv_b		 = m_arr.gen_buffer(2, 2);
-	size_t normal_b	 = m_arr.gen_buffer(3, 3);
-	size_t element_b = m_arr.gen_element_buffer();
+		arr.set_primitive(gl::Triangles);
 
-	std::vector<GLfloat> positions;
-	std::vector<GLfloat> uvs;
-	std::vector<GLfloat> norms;
-	std::vector<unsigned int> elements;
+		size_t pos_b = arr.gen_buffer(0, 3);
+		arr.disable_attrib(1);
+		size_t uv_b		 = arr.gen_buffer(2, 2);
+		size_t normal_b	 = arr.gen_buffer(3, 3);
+		size_t element_b = arr.gen_element_buffer();
 
-	for (auto& v : l.LoadedVertices) {
-		positions.push_back(v.Position.X);
-		positions.push_back(v.Position.Y);
-		positions.push_back(v.Position.Z);
+		arr.get_buffer(pos_b).set_data(mesh.positions());
+		arr.get_buffer(uv_b).set_data(mesh.uvs());
+		arr.get_buffer(normal_b).set_data(mesh.normals());
+		arr.get_buffer(element_b).set_data(mesh.indices());
 
-		uvs.push_back(v.TextureCoordinate.X);
-		uvs.push_back(1 - v.TextureCoordinate.Y);
-
-		norms.push_back(v.Normal.X);
-		norms.push_back(v.Normal.Y);
-		norms.push_back(v.Normal.Z);
+		arr.set_vertex_ct(mesh.indices().size());
 	}
-
-	elements = l.LoadedIndices;
-
-	m_arr.get_buffer(pos_b).set_data(positions);
-	m_arr.get_buffer(uv_b).set_data(uvs);
-	m_arr.get_buffer(normal_b).set_data(norms);
-	m_arr.get_buffer(element_b).set_data(elements);
-
-	m_arr.set_vertex_ct(elements.size());
 }
 
 void model::update_self(window& win) {
 }
 
 void model::render_self(window& win) {
-	m_arr.render();
+	for (auto& i : m_arrs) {
+		i.render();
+	}
 }
 
 }

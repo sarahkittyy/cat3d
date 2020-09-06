@@ -1,7 +1,8 @@
 #pragma once
 
-#include <unordered_map>
 #include <string>
+#include <unordered_map>
+#include <vector>
 
 #include "cat3d/gl.hpp"
 
@@ -14,7 +15,7 @@ class resource {
 public:
 	resource();
 	~resource();
-	
+
 	/**
 	 * @brief Get the texture at the given path
 	 *
@@ -23,6 +24,15 @@ public:
 	 * @returns gl::texture& A reference to the loaded texture
 	 */
 	gl::texture& texture(const std::string& path);
+
+	/**
+	 * @brief Get the group of meshes at the given .obj file
+	 *
+	 * @param path The path to the .obj file.
+	 *
+	 * @returns const std::vector<gl::mesh>& A reference to all the loaded meshes.
+	 */
+	const std::vector<gl::mesh>& mesh(const std::string& path);
 
 	/**
 	 * @brief Get the default app resource manager
@@ -37,6 +47,8 @@ private:
 
 	/// all loaded textures
 	std::unordered_map<std::string, gl::texture> m_textures;
+	/// all loaded mesh groups
+	std::unordered_map<std::string, std::vector<gl::mesh>> m_meshes;
 };
 
 }
