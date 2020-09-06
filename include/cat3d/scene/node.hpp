@@ -3,12 +3,23 @@
 #include <functional>
 #include <glm/glm.hpp>
 #include <vector>
+#include <unordered_map>
 
 #include "cat3d/util/clock.hpp"
 #include "cat3d/util/transform.hpp"
 #include "cat3d/window.hpp"
 
 namespace cat3d::scene {
+
+/**
+ * @brief Locations for update function binds to be
+ */
+enum node_bind_loc {
+	PRE_UPDATE,
+	POST_UPDATE,
+	PRE_RENDER,
+	POST_RENDER,
+};
 
 /**
  * @brief Basic, semi-abstract scene node class. Can have children which are other scene nodes, or derived types.
@@ -100,6 +111,25 @@ public:
 		return o;
 	}
 
+	/**
+	 * @brief Add a hook into the update cycle of the node
+	 *
+	 * @param loc The location in the update cycle to hook into
+	 * @param fn The function to run
+	 *
+	 * @returns size_t An event token id, to unbind once the hooked class goes out of scope.
+	 */
+	size_t bind(node_bind_loc loc, std::function<void()> fn);
+
+	/**
+	 * @brief Unbind a hook from the node.
+	 *
+	 * @remarks Not unbinding a function while it goes out of scope is an error!
+	 *
+	 * @param id The event token id
+	 */
+	void unbind(size_t id);
+
 protected:
 	/**
 	 * @brief Overridden by child classes to implement custom behavior
@@ -124,6 +154,15 @@ private:
 
 	/// child nodes
 	std::vector<node*> m_children;
+
+	/// bound event hooks
+	std::unordered_map<size_t, std::pair<node_bind_loc, std::function<void()>>> m_hooks;
+
+	/// internal variable for tracking available hook ids.
+	size_t m_next_hook_id = 0;
+
+	/// run all the hooks at a given point
+	void run_hooks(node_bind_loc l);
 
 	/// local transform
 	util::transform m_transform;

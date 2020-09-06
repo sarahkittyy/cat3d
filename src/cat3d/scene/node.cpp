@@ -46,24 +46,49 @@ node* node::parent() const {
 }
 
 void node::update(window& win) {
+	run_hooks(PRE_UPDATE);
 	update_self(win);
 	for (auto& i : m_children) {
 		i->update(win);
 	}
+	run_hooks(POST_UPDATE);
 }
 
 void node::render(window& win) {
+	glBindTexture(GL_TEXTURE_2D, 0);
+	run_hooks(PRE_RENDER);
 	push_transform(win);
 	render_self(win);
 	for (auto& i : m_children) {
 		i->render(win);
 	}
+	run_hooks(POST_RENDER);
 }
 
 void node::update_self(window& win) {
 }
 
 void node::render_self(window& win) {
+}
+
+size_t node::bind(node_bind_loc loc, std::function<void()> fn) {
+	size_t id = m_next_hook_id++;
+	m_hooks[id] = std::make_pair(loc, fn);
+	return id;
+}
+
+void node::unbind(size_t id) {
+	m_hooks.erase(id);
+}
+
+void node::run_hooks(node_bind_loc loc) {
+	std::for_each(
+		m_hooks.begin(), m_hooks.end(),
+		[&loc](const auto& p) {
+			if (p.second.first == loc) {
+				p.second.second();
+			}
+		});
 }
 
 util::transform& node::transform() {
