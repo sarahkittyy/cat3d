@@ -14,9 +14,16 @@ public:
 	/**
 	 * @brief Initialize the texture.
 	 *
-	 * @param path The path to the texture.
+	 * @param path The path to the texture image file.
 	 */
 	texture(const std::string& path);
+
+	/**
+	 * @brief Initialize the texture.
+	 *
+	 * @param col The color of the texture.
+	 */
+	texture(color col);
 
 	/// disconnects from the bind hook
 	~texture();

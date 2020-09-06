@@ -7,6 +7,11 @@ texture::texture(const std::string& path)
 	  m_hooked(false) {
 }
 
+texture::texture(color col)
+	: m_hooked(false) {
+	m_tex.load_color(col);
+}
+
 texture::~texture() {
 	if (m_hooked) {
 		parent()->unbind(m_hook_id);
@@ -21,5 +26,4 @@ void texture::update_self(window& win) {
 		});
 	}
 }
-
 }
