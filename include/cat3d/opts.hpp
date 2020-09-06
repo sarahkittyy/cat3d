@@ -11,6 +11,8 @@ enum opt {
 	HEIGHT,
 	TITLE,
 	CLEAR_COLOR,
+	ANTIALIASING
+
 };
 
 /**

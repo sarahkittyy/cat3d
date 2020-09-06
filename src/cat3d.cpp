@@ -57,6 +57,8 @@ void init(opts opt) {
 
 	m_win = new window(width, height, title);
 
+	glfwWindowHint(GLFW_SAMPLES, m_opt->get<int>(cat3d::ANTIALIASING, 0));
+
 	if (glewInit() != GLEW_OK) {
 		glfwTerminate();
 		throw std::runtime_error("Could not initialize glew.");
@@ -66,6 +68,7 @@ void init(opts opt) {
 	glDepthFunc(GL_LESS);
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_BLEND);
+	glEnable(GL_MULTISAMPLE);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	m_shader = new gl::shader();
